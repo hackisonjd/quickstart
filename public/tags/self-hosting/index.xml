@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Self-Hosting on Jackson Frost&#39;s Tavern</title>
+    <link>http://localhost:1313/tags/self-hosting/</link>
+    <description>Recent content in Self-Hosting on Jackson Frost&#39;s Tavern</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/self-hosting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Awesome Media Server</title>
+      <link>http://localhost:1313/posts/my-awesome-media-server/</link>
+      <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/my-awesome-media-server/</guid>
+      <description>&lt;h2 id=&#34;rationale&#34;&gt;Rationale&lt;/h2&gt;
+&lt;p&gt;In the last few years, streaming services have become a very convenient way to enjoy media, but have led to very significant problems regarding accessibility and media ownership. There is one prevalent truth, the streaming service you paid for can pull media without your knowledge, or even lock it behind their own services to get you to pay more.&lt;/p&gt;
+&lt;p&gt;You are essentially renting your entertainment. It&amp;rsquo;s exploitative, and bad for your wallet.&lt;/p&gt;</description>
+      <content>&lt;h2 id=&#34;rationale&#34;&gt;Rationale&lt;/h2&gt;
+&lt;p&gt;In the last few years, streaming services have become a very convenient way to enjoy media, but have led to very significant problems regarding accessibility and media ownership. There is one prevalent truth, the streaming service you paid for can pull media without your knowledge, or even lock it behind their own services to get you to pay more.&lt;/p&gt;
+&lt;p&gt;You are essentially renting your entertainment. It&amp;rsquo;s exploitative, and bad for your wallet.&lt;/p&gt;
+&lt;p&gt;Not all is lost, though. Many people have a library of physical media that they&amp;rsquo;ve collected over the years, and thankfully, media servers have become way easier to host yourself. I made the journey to completely self-host my media last year, and I haven&amp;rsquo;t looked back. I want to give you the tools to do that too.&lt;/p&gt;
+&lt;h2 id=&#34;but-first-a-word-on-piracy&#34;&gt;But first, a word on piracy&lt;/h2&gt;
+&lt;p&gt;Piracy has become a murky subject, especially as the economy tightens and &lt;a href=&#34;https://hackaday.com/2014/09/08/unbricking-a-bluray-drive/&#34;&gt;corporations make it more difficult to back up your physical media&lt;/a&gt;. It is not the business, nor goal of this article to give you moral guidance on where you should stand on this issue. Rather, this article aims to be an informational piece to let you know that these tools exist and how you can use them. Use your best judgment, and use these tools responsibly.&lt;/p&gt;
+&lt;h2 id=&#34;assumptions&#34;&gt;Assumptions&lt;/h2&gt;
+&lt;p&gt;This guide assumes that you have a spare computer that you can use to run as a media server. You don&amp;rsquo;t need the most intense system to run something like this, and even something like a ten year old Thinkpad will be more than sufficient. Be creative!&lt;/p&gt;
+&lt;p&gt;In addition, it is highly, highly, highly recommended to use a VPN in order to use torrenting software. While you technically &lt;em&gt;can&lt;/em&gt; get away with not using it, I don&amp;rsquo;t recommend it for a &lt;a href=&#34;https://www.tomsguide.com/features/this-is-why-everybody-else-uses-a-vpn-when-torrenting&#34;&gt;variety of different reasons&lt;/a&gt;. I&amp;rsquo;ve used &lt;a href=&#34;https://account.protonvpn.com/signup?plan=vpn2024&amp;amp;billing=24&amp;amp;currency=USD&amp;amp;coupon=VPN24DEAL&#34;&gt;ProtonVPN&lt;/a&gt; for a long time, and it&amp;rsquo;s been fantastic. Their VPN plans typically go on sale quite often, but realistically any paid VPN will work as long as it supports port-forwarding.&lt;/p&gt;
+&lt;p&gt;Finally, if installing this on a physical machine, make sure that you have a spare USB stick ready.&lt;/p&gt;
+&lt;h2 id=&#34;preparation&#34;&gt;Preparation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Navigate to the &lt;a href=&#34;https://ubuntu.com/download/server&#34;&gt;Ubuntu Server&lt;/a&gt; website and install the latest LTS version (at the time of writing, it&amp;rsquo;s 24.04.2 LTS).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![[Pasted image 20250305182540.png]]&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
