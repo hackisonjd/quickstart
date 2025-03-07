@@ -4,7 +4,6 @@ date: 2025-03-05
 draft: true
 tags:
   - self-hosting
-author: Jackson Darman
 ---
 
 ## Rationale

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+    <title>A Beginner&#39;s Guide to CI and CD :: Jackson Frost&#39;s Tavern</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="What is CI/CD? Continuous Integration (CI): Automate the process of merging new code into a shared repository, early and often.
+Each commit triggers an automated workflow on a server that runs a series of tasks to ensure new code doesn&rsquo;t break the codebase. A natural evolution of test-driven development. Continuous Deployment/Delivery (CD): One step further than CI, code that passes all tests is automatically deployed to production, without manual intervention.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="http://localhost:1313/posts/a-beginners-guide-to-ci-and-cd/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/buttons.min.2bc533403a27dfe0e93105a92502b42ce4587e2e4a87d9f7d349e51e16e09478.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/code.min.00125962708925857e7b66dbc58391d55be1191a3d0ce2034de8c9cd2c481c36.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/fonts.min.4881f0c525f3ce2a1864fb6e96676396cebe1e6fcef1933e8e1dde7041004fb5.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/footer.min.2e3eb191baee58dd05a9f0104ac1fab0827bca7c64dafe0b2579f934c33a1d69.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/header.min.b6fb4423cf82a9f9d7abc9cd010223fa3d70a6526a3f28f8e17d814c06e18f9e.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/main.min.fe8dc560fccb53a458b0db19ccb7b265764ac46b68596b7e099c6793054dd457.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/menu.min.83637a90d903026bc280d3f82f96ceb06c5fc72b7c1a8d686afb5bbf818a29f7.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/pagination.min.82f6400eae7c7c6dc3c866733c2ec0579e4089608fea69400ff85b3880aa0d3c.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/post.min.fc74ca360273c1d828da3c02b8174eba435607b369d98418ccc6f2243cd4e75d.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/prism.min.9023bbc24533d09e97a51a0a42a5a7bfe4c591ae167c5551fb1d2191d11977c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.min.cc789ed9377260d7949ea4c18781fc58959a89287210fe4edbff44ebfc1511b6.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terminal.min.4b367d85d0d0061435650561285afed36c46a7cf8dc6d7ed5642d98e589fa622.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="http://localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="A Beginner&#39;s Guide to CI and CD">
+<meta property="og:description" content="What is CI/CD? Continuous Integration (CI): Automate the process of merging new code into a shared repository, early and often.
+Each commit triggers an automated workflow on a server that runs a series of tasks to ensure new code doesn&rsquo;t break the codebase. A natural evolution of test-driven development. Continuous Deployment/Delivery (CD): One step further than CI, code that passes all tests is automatically deployed to production, without manual intervention.
+" />
+<meta property="og:url" content="http://localhost:1313/posts/a-beginners-guide-to-ci-and-cd/" />
+<meta property="og:site_name" content="Jackson Frost&#39;s Tavern" />
+
+  <meta property="og:image" content="http://localhost:1313/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-03-07 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="http://localhost:1313/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="http://localhost:1313/posts/a-beginners-guide-to-ci-and-cd/">A Beginner&rsquo;s Guide to CI and CD</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-03-07</time><span class="post-author">Jackson Darman</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="http://localhost:1313/tags/uug-talks/">uug-talks</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="what-is-cicd">What is CI/CD?<a href="#what-is-cicd" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p><strong>Continuous Integration (CI)</strong>: Automate the process of merging new code into a shared repository, early and often.</p>
+<ul>
+<li>Each commit triggers an automated workflow on a server that runs a series of tasks to ensure new code doesn&rsquo;t break the codebase.</li>
+<li>A natural evolution of test-driven development.</li>
+</ul>
+<p><strong>Continuous Deployment/Delivery (CD)</strong>: One step further than CI, code that passes all tests is automatically deployed to production, without manual intervention.</p>
+<ul>
+<li>Significantly harder to pull off, typically only used on basic, stateless systems.
+<ul>
+<li>Web servers and APIs, which are easy to rollback if something breaks</li>
+</ul>
+</li>
+<li>The more complex and stateful the system is, the harder it is to make it truly rely on CD.</li>
+</ul>
+<p>Most developer platforms have their own CI/CD solutions (GitHub Actions), but many people also self-host these solutions themselves (a topic for another time).</p>
+<h1 id="the-theory">The Theory<a href="#the-theory" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>The idea is to automate the testing and delivery of software from the initial code commit all the way through to deployment.</p>
+<h3 id="why-do-this">Why do this?<a href="#why-do-this" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>Limits amount of human intervention required to build a project. (Automate once, be &ldquo;lazy&rdquo; forever)</li>
+<li>Allows for multiple people, with drastically different roles, to deploy code without conflicts (&ldquo;merge hell&rdquo;)</li>
+<li>For large corporations, time is money!</li>
+</ul>
+<p><strong>Is it worth it?</strong> It depends!</p>
+<h1 id="the-agenda">The Agenda<a href="#the-agenda" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>You will be setting up a sample GitHub repository, and setting up a GitHub Actions configuration file to ensure that code will be checked and, if it passes the tests, deploy a new build automatically.</p>
+<p><strong>Terminology to understand:</strong></p>
+<ul>
+<li><strong>Events</strong>: Trigger for a workflow. &ldquo;When new code is pushed to this repository, run the below job.&rdquo;</li>
+<li><strong>Jobs</strong>: A series of <em>steps</em> and <em>actions</em> that only run once triggered by an event (typically linters and testing software).</li>
+<li><strong>Runners</strong>: An isolated environment (container) that runs our code throughout the CI/CD process.</li>
+</ul>
+<p>Here is a simple example to demonstrate these concepts in action!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Make your names descriptive!</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Lint</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Only run whenever new code is pushed to the repo</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>: <span style="color:#ae81ff">push</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Linting job</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">lint</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Lint code base</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span> <span style="color:#75715e"># Define the OS for your runner.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>: <span style="color:#75715e"># What the job will do, in order, once the event triggers</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout code</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run linter</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">github/super-linter@v3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">env</span>: 
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">DEFAULT_BRANCH</span>: <span style="color:#ae81ff">main</span> <span style="color:#75715e"># This job will ONLY run on the main branch</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># Never use plaintext to store sensitive information, use secrets!</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+</span></span></code></pre></div><h1 id="getting-started">Getting Started<a href="#getting-started" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p><em>Note:</em> In order to follow along, you must install Git and have an active GitHub account.</p>
+<h2 id="fork-my-sample-repository">Fork my sample repository<a href="#fork-my-sample-repository" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>For demonstration purposes, I have created a sample repository that contains a simple Python &ldquo;Hello World&rdquo; file.</p>
+<ol>
+<li>Navigate to <a href="https://github.com/hackisonjd/gh-actions-example">https://github.com/hackisonjd/gh-actions-example</a></li>
+<li>In the top-right corner of the page, click <strong>Fork</strong>. Leave everything as default.</li>
+<li>Click <strong>Create fork</strong>.</li>
+</ol>
+<h2 id="download-the-repository-to-your-local-device">Download the repository to your local device<a href="#download-the-repository-to-your-local-device" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ol>
+<li>On GitHub, navigate to <strong>your fork</strong> of the sample repository.</li>
+<li>Above the list of files, click the green <strong>Code</strong> button</li>
+<li>Copy the URL for the repository.
+<ol>
+<li>If you have an SSH key associated with your GitHub account already, use the SSH option.</li>
+<li>Otherwise, use the HTTPS option.</li>
+</ol>
+</li>
+<li>Open your terminal, and type the following:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/Documents <span style="color:#75715e"># Or use whatever directory you want!</span>
+</span></span><span style="display:flex;"><span>git clone &lt;PASTE YOUR LINK HERE&gt;
+</span></span></code></pre></div><p>After you&rsquo;ve completed these steps, you should have the repository in the location you specified.</p>
+<h2 id="create-your-first-workflow">Create your first workflow<a href="#create-your-first-workflow" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd gh-actions-example
+</span></span><span style="display:flex;"><span>mkdir .github/workflows <span style="color:#f92672">&amp;&amp;</span> cd .github/workflows
+</span></span><span style="display:flex;"><span>touch static.yml
+</span></span></code></pre></div><p>These commands do the following:</p>
+<ul>
+<li>Change to the <code>gh-actions-example</code> directory, where we downloaded our files from GitHub.</li>
+<li>Within that directory, make a directory named <code>workflows</code> that is inside another directory named <code>.github</code>, and change to that directory.
+<ul>
+<li>This directory is where GitHub looks for your workflow files.</li>
+</ul>
+</li>
+<li>Create a new file named <code>static.yml</code>
+<ul>
+<li>This is your workflow file. It can be named anything you want, but make sure to leave the <code>.yml</code> extension!</li>
+</ul>
+</li>
+</ul>
+<h2 id="open-your-workflow-in-a-text-editor">Open your workflow in a text editor<a href="#open-your-workflow-in-a-text-editor" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Let&rsquo;s say, for instance, we want our groundbreaking, revolutionary &ldquo;Hello World&rdquo; app to conform to standard PEP 8 formatting. How would we accomplish this?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Hello World application</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#e6db74">&#34;main&#34;</span> ]
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pull_request</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#e6db74">&#34;main&#34;</span> ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up Python 3.10</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-python@v3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">python-version</span>: <span style="color:#e6db74">&#34;3.10&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install dependencies</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        python -m pip install --upgrade pip
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        pip install flake8 pytest
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Lint with flake8</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        # stop the build if there are Python syntax errors or undefined names
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Test with pytest</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        pytest</span>
+</span></span></code></pre></div><h2 id="time-out-whats-going-on-here">Time out! What&rsquo;s going on here?<a href="#time-out-whats-going-on-here" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>This seems like a lot. What is this specifically doing?</p>
+<ul>
+<li>First, you&rsquo;re setting the <em>events</em> that will trigger this workflow. In this case, this workflow triggers when you push to the main branch of the repository, or if someone submits a pull request.</li>
+<li>Then, you&rsquo;re defining a job, and in that job, you&rsquo;re doing a couple of things:
+<ul>
+<li>First, you&rsquo;re saying that you want this <em>runner</em> to use Ubuntu.</li>
+<li>Second, you&rsquo;re defining your <em>steps</em>:
+<ul>
+<li>Set up Python 3.10.</li>
+<li>Install the dependencies we need.</li>
+<li>Run the linter.</li>
+<li>Run the tests.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Notice that these are things that you would ordinarily do manually (I hope) if you&rsquo;re deploying or pushing code to a repository.</p>
+<p>By taking the extra five or so minutes to define a workflow first, you&rsquo;ve saved yourself (or in an enterprise setting, your team) an insane amount of time in the future, especially as the project gets larger.</p>
+<p>This is where CI/CD shines!</p>
+
+      </div></div>
+
+  
+    
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
